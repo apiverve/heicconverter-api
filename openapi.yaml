@@ -1,0 +1,117 @@
+openapi: 3.0.4
+info:
+  title: HEIC Converter
+  description: >-
+    HEIC Converter transforms Apple HEIC and HEIF images to web-friendly
+    formats. Perfect for processing iPhone photos that need to be converted for
+    websites, apps, or services that don't support HEIC.
+  termsOfService: https://apiverve.com/terms/
+  contact:
+    name: APIVerve Support
+    email: hello@apiverve.com
+    url: https://apiverve.com/contact
+  version: 1.0.0
+externalDocs:
+  description: Learn more about APIVerve
+  url: https://docs.apiverve.com?utm_source=openapi
+servers:
+  - url: https://api.apiverve.com/
+paths:
+  /v1/heicconverter:
+    post:
+      summary: Convert HEIC Image
+      description: >-
+        Convert a HEIC/HEIF image to another format. Upload an image file to
+        convert.
+      operationId: heicconverter
+      parameters:
+        - name: outputFormat
+          in: query
+          schema:
+            type: string
+          required: true
+          description: Target format
+          example: png
+        - name: quality
+          in: query
+          schema:
+            type: integer
+          required: false
+          description: Output quality (applies to jpg/webp)
+          example: 90
+        - name: maxWidth
+          in: query
+          schema:
+            type: integer
+          required: false
+          description: Maximum width in pixels (maintains aspect ratio)
+          example: 1920
+        - name: maxHeight
+          in: query
+          schema:
+            type: integer
+          required: false
+          description: Maximum height in pixels (maintains aspect ratio)
+          example: 1080
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: status
+                  error:
+                    type: string
+                    description: error
+                  data:
+                    type: object
+                    description: data
+              example:
+                status: ok
+                error: null
+                data:
+                  id: f8e7d6c5-4321-09ab-fedc-ba0987654321
+                  inputFormat: heic
+                  outputFormat: jpg
+                  inputSize: 3145728
+                  outputSize: 892456
+                  mimeType: image/jpeg
+                  expires: 1707350400000
+                  downloadURL: >-
+                    https://storage.googleapis.com/apiverve/heicconverter/f8e7d6c5.jpg
+                code: 200
+        '401':
+          description: Your request was not authorized, or your API Key was invalid
+        '404':
+          description: Requested resource was not found
+        '500':
+          description: A server error has occurred, try again later
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image:
+                  type: string
+                  format: binary
+                  description: 'File to upload (accepted: .heic, .heif, max 10MB)'
+                  acceptedTypes:
+                    - .heic
+                    - .heif
+                  maxSizeMB: 10
+              required:
+                - image
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
+security:
+  - api_key: []
