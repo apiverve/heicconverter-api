@@ -1,6 +1,6 @@
 {
   "name": "@apiverve/heicconverter",
-  "version": "1.1.13",
+  "version": "1.1.14",
   "description": "HEIC Converter transforms Apple HEIC and HEIF images to web-friendly formats. Perfect for processing iPhone photos that need to be converted for websites, apps, or services that don't support HEIC.",
   "main": "index.js",
   "types": "index.d.ts",
