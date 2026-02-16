@@ -26,7 +26,7 @@ Add the dependency:
 
 ```gradle
 dependencies {
-    implementation 'com.github.apiverve:heicconverter-api:1.1.13'
+    implementation 'com.github.apiverve:heicconverter-api:1.1.14'
 }
 ```
 
@@ -47,7 +47,7 @@ HEICConverterAPIClient client = new HEICConverterAPIClient("YOUR_API_KEY");
 try {
     // Prepare request parameters
     Map<String, Object> parameters = new HashMap<>();
-    parameters.put("image", "");
+    parameters.put("image", "example");
     parameters.put("outputFormat", "png");
     parameters.put("quality", 90);
     parameters.put("maxWidth", 1920);
