@@ -191,11 +191,36 @@ x-api-key: YOUR_API_KEY_HERE
 Get your API key: [https://apiverve.com](https://apiverve.com)
 
 ### Response Format
-All responses are JSON with this structure:
+
+Every APIVerve endpoint returns the same envelope — check `status`, then read `data`:
+
 ```json
 {
   "status": "ok",
+  "error": null,
   "data": { ... }
+}
+```
+
+### Example Response
+
+A real response from the HEIC Converter API:
+
+```json
+{
+  "status": "ok",
+  "error": null,
+  "data": {
+    "id": "f8e7d6c5-4321-09ab-fedc-ba0987654321",
+    "inputFormat": "heic",
+    "outputFormat": "jpg",
+    "inputSize": 3145728,
+    "outputSize": 892456,
+    "mimeType": "image/jpeg",
+    "expires": 1707350400000,
+    "downloadURL": "https://storage.googleapis.com/apiverve/heicconverter/f8e7d6c5.jpg"
+  },
+  "code": 200
 }
 ```
 
