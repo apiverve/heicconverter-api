@@ -1,7 +1,7 @@
 {
     "name": "apiverve/heicconverter",
     "description": "HEIC Converter transforms Apple HEIC and HEIF images to web-friendly formats. Perfect for processing iPhone photos that need to be converted for websites, apps, or services that don't support HEIC.",
-    "version": "1.2.0",
+    "version": "1.2.2",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -16,12 +16,12 @@
         "apiverve",
         "heicconverter",
         "heic converter api",
+        "heic to jpg api",
+        "bulk convert heic to jpg",
         "heic to png",
-        "heic to jpg",
-        "heic to jpeg",
-        "convert heic"
+        "heic to jpg"
     ],
-    "homepage": "https://apiverve.com/marketplace/heicconverter?utm_source=php&utm_medium=homepage",
+    "homepage": "https://apiverve.com/marketplace/heicconverter?utm_source=php&utm_medium=referral&utm_content=homepage",
     "support": {
         "email": "hello@apiverve.com",
         "docs": "https://docs.apiverve.com/ref/heicconverter",
