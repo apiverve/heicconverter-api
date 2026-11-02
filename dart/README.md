@@ -5,7 +5,7 @@ HEIC Converter transforms Apple HEIC and HEIF images to web-friendly formats. Pe
 [![pub package](https://img.shields.io/pub/v/apiverve_heicconverter.svg)](https://pub.dev/packages/apiverve_heicconverter)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This is the Dart/Flutter client for the [HEIC Converter API](https://apiverve.com/marketplace/heicconverter?utm_source=dart&utm_medium=readme).
+This is the Dart/Flutter client for the [HEIC Converter API](https://apiverve.com/marketplace/heicconverter?utm_source=dart&utm_medium=referral&utm_content=readme).
 
 ## Installation
 
@@ -13,7 +13,7 @@ Add this to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  apiverve_heicconverter: ^1.1.14
+  apiverve_heicconverter: ^1.2.4
 ```
 
 Then run:
@@ -33,13 +33,8 @@ void main() async {
   final client = HeicconverterClient('YOUR_API_KEY');
 
   try {
-    final response = await client.execute({
-      'image': '',
-      'outputFormat': 'png',
-      'quality': 90,
-      'maxWidth': 1920,
-      'maxHeight': 1080
-    });
+    // This API requires a file upload — a JSON body is rejected with a 400.
+    final response = await client.executeWithFile('/path/to/your-file');
 
     print('Status: ${response.status}');
     print('Data: ${response.data}');
@@ -71,12 +66,12 @@ void main() async {
 
 ## API Reference
 
-- **API Home:** [HEIC Converter API](https://apiverve.com/marketplace/heicconverter?utm_source=dart&utm_medium=readme)
-- **Documentation:** [docs.apiverve.com/ref/heicconverter](https://docs.apiverve.com/ref/heicconverter?utm_source=dart&utm_medium=readme)
+- **API Home:** [HEIC Converter API](https://apiverve.com/marketplace/heicconverter?utm_source=dart&utm_medium=referral&utm_content=readme)
+- **Documentation:** [docs.apiverve.com/ref/heicconverter](https://docs.apiverve.com/ref/heicconverter?utm_source=dart&utm_medium=referral&utm_content=readme)
 
 ## Authentication
 
-All requests require an API key. Get yours at [apiverve.com](https://apiverve.com?utm_source=dart&utm_medium=readme).
+All requests require an API key. Get yours at [apiverve.com](https://apiverve.com?utm_source=dart&utm_medium=referral&utm_content=readme).
 
 ## License
 
@@ -84,4 +79,4 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-Built with Dart for [APIVerve](https://apiverve.com?utm_source=dart&utm_medium=readme)
+Built with Dart for [APIVerve](https://apiverve.com?utm_source=dart&utm_medium=referral&utm_content=readme)
